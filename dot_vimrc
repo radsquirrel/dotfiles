@@ -1,0 +1,220 @@
+" Vim 8 defaults
+unlet! skip_defaults_vim
+silent! source $VIMRUNTIME/defaults.vim
+
+augroup vimrc
+    autocmd!
+augroup END
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+    \| endif
+
+" Automatically commit changes
+function! s:autocommit()
+    let s:dir = expand('%:p:h')
+    let s:git = 'git -C ' . s:dir .' '
+    let s:file = split(expand('%'), s:dir)[0]
+    let s:cmd =
+                \ s:git .'add ' .s:dir
+                \ .' && '
+                \ . s:git .'commit -am "autocommit: ' .s:file .'"'
+    call system(s:cmd)
+endfunction
+
+silent! if plug#begin()
+    Plug 'tomasr/molokai'
+    let g:rehash256 = 1
+    Plug 'Lokaltog/vim-distinguished'
+    Plug 'chriskempson/vim-tomorrow-theme'
+    Plug 'gruvbox-community/gruvbox'
+    Plug 'yuttie/hydrangea-vim'
+    Plug 'tyrannicaltoucan/vim-deep-space'
+    Plug 'AlessandroYorba/Despacio'
+    Plug 'cocopon/iceberg.vim'
+    Plug 'w0ng/vim-hybrid'
+    Plug 'nightsense/snow'
+    Plug 'nightsense/stellarized'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'nightsense/cosmic_latte'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    let g:airline_powerline_fonts = 1
+    set noshowmode
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-endwise'
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'junegunn/vim-slash'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    augroup nerd_loader
+        autocmd!
+        autocmd VimEnter * silent! autocmd! FileExplorer
+        autocmd BufEnter,BufNew *
+            \  if isdirectory(expand('<amatch>'))
+            \|     call plug#load('nerdtree')
+            \|     execute 'autocmd! nerd_loader'
+            \| endif
+    augroup END
+    if executable('fzf')
+        if executable('rg')
+            Plug 'alok/notational-fzf-vim'
+            let g:nv_search_paths = [ '~/.local/share/nv-fzf-vim' ]
+        endif
+        Plug 'junegunn/fzf'
+        Plug 'junegunn/fzf.vim'
+        nmap <Leader>f :GFiles<CR>
+        nmap <Leader>F :Files<CR>
+        nmap <Leader>b :Buffers<CR>
+        nmap <Leader>h :History<CR>
+        nmap <Leader>t :BTags<CR>
+        nmap <Leader>T :Tags<CR>
+        nmap <Leader>l :BLines<CR>
+        nmap <Leader>L :Lines<CR>
+        nmap <Leader>' :Marks<CR>
+        nmap <Leader>/ :Rg<Space>
+        nmap <Leader>H :Helptags!<CR>
+        nmap <Leader>: :History:<CR>
+        nmap <Leader>s :Filetypes<CR>
+        nmap <Leader>M :Maps<CR>
+    endif
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'blankname/vim-fish'
+    Plug 'kergoth/vim-bitbake'
+    if v:version >= 800
+        Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+        let g:pymode_lint_on_fly = 1
+        Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview' }
+        if executable('node')
+            Plug 'neoclide/coc.nvim', {'branch': 'release'}
+            let g:coc_global_extensions = [
+                \ 'coc-clangd',
+                \ 'coc-diagnostic',
+                \ 'coc-json',
+                \ 'coc-markdownlint',
+                \ 'coc-sh',
+                \ 'coc-snippets',
+                \ 'coc-yaml',
+                \ ]
+            set hidden
+            let airline#extensions#coc#error_symbol = '🔥'
+            let airline#extensions#coc#warning_symbol = '⚠️'
+
+            command! -nargs=0 Format :call CocActionAsync('format')
+
+            " Make <CR> auto-select the first completion item and notify coc.nvim to
+            " format on enter, <cr> could be remapped by other vim plugin
+            inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            nmap <silent> gd <Plug>(coc-definition)
+            nmap <silent> gy <Plug>(coc-type-definition)
+            nmap <silent> gi <Plug>(coc-implementation)
+            nmap <silent> gr <Plug>(coc-references)
+
+            nmap <leader>d  :call CocAction('definitionHover')<CR>
+            xmap <leader>p  <Plug>(coc-format-selected)
+            nmap <leader>p  <Plug>(coc-format-selected)
+            nmap <leader>qf <Plug>(coc-fix-current)
+            nmap <leader>rn <Plug>(coc-rename)
+        endif
+    endif
+    Plug 'tpope/vim-sleuth'
+    Plug 'honza/vim-snippets'
+    Plug 'ojroques/vim-oscyank'
+    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
+    call plug#end()
+endif
+
+" ----------------------------------------------------------------------------
+" <F8> | Color scheme selector
+" ----------------------------------------------------------------------------
+function! s:colors(...)
+    return filter(map(filter(split(globpath(&rtp, 'colors/*.vim'), "\n"),
+        \                  'v:val !~ "^/usr/"'),
+        \           'fnamemodify(v:val, ":t:r")'),
+        \       '!a:0 || stridx(v:val, a:1) >= 0')
+endfunction
+
+function! s:rotate_colors()
+    if !exists('s:colors')
+        let s:colors = s:colors()
+    endif
+    let name = remove(s:colors, 0)
+    call add(s:colors, name)
+    execute 'colorscheme' name
+    highlight Comment cterm=italic
+    highlight Comment gui=italic
+    redraw
+    echo name
+endfunction
+nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
+
+silent! colorscheme gruvbox
+set background=dark
+set termguicolors
+highlight Comment cterm=italic
+highlight Comment gui=italic
+
+silent! set ttymouse=xterm2
+set mouse=a
+
+" annoying backup files
+set backupdir=/tmp//,.
+set directory=/tmp//,.
+
+if exists('&fixeol')
+    set nofixeol
+endif
+
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" jk | Escaping!
+inoremap jk <esc>
+xnoremap jk <esc>
+cnoremap jk <c-c>
+
+" arrow key | Retraining!
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+augroup vimrc
+    " Automatic rename of tmux window
+    if exists('$TMUX') && !exists('$NORENAME')
+        au BufEnter * if empty(&buftype) | call system('tmux rename-window '.expand('%:t:S')) | endif
+        au VimLeave * call system('tmux set-window automatic-rename on')
+    endif
+    autocmd BufNewFile,BufRead \c*jenkinsfile setf groovy
+augroup END
+
+" Add format option 'w' to add trailing white space, indicating that paragraph
+" continues on next line. This is to be used with mutt's 'text_flowed' option.
+augroup mail_trailing_whitespace
+    autocmd!
+    autocmd FileType mail setlocal formatoptions+=w
+augroup END
+
+augroup autocommit
+    autocmd!
+    autocmd BufWritePost ~/.local/share/nv-fzf-vim/* call s:autocommit()
+augroup END
