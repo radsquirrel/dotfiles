@@ -1,0 +1,32 @@
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	ctags = !.git/hooks/ctags
+	cscope = !.git/hooks/cscope
+	l1 = log --decorate --oneline --graph
+	last = log -1
+	mr = "!f() { git fetch \"$1\" \"merge-requests/$2/head:merge-request-$2\" && git checkout \"merge-request-$2\"; }; f"
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rma = remote add
+	rmr = remote remove
+	rmv = remote -v
+	st = status
+[diff]
+	tool = vimdiff
+[help]
+	autocorrect = -1
+[include]
+	path = .gitconfig-local
+[init]
+	templatedir = ~/.config/git-template
+	defaultBranch = main
+[fetch]
+	prune = true
+[merge]
+	tool = fugitive
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Git diff\" \"$MERGED\"
+[rebase]
+	autosquash = true

@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+git ls-files | sed 's/^\|$/"/g' >cscope.files
+cscope -b -q -k
