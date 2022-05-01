@@ -1,0 +1,7 @@
+[Unit]
+Description=Update neovim plugins
+After=network.target network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nvim +PlugUpgrade +PlugUpdate +CocUpdateSync +qall

@@ -1,0 +1,7 @@
+[Unit]
+Description=Update fish plugins
+After=network.target network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/fish -c 'fisher update'

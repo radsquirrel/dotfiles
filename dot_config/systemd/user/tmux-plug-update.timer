@@ -1,0 +1,10 @@
+[Unit]
+Description=Update tmux plugins timer
+
+[Timer]
+RandomizedDelaySec=3h
+OnCalendar=*-*-* 02:00:00
+Unit=tmux-plug-update.service
+
+[Install]
+WantedBy=timers.target
