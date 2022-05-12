@@ -17,5 +17,11 @@ else if command --query vim
 end
 set --export VISUAL $EDITOR
 set --export FZF_DEFAULT_OPTS "
+    --prompt=🔍
+    --pointer=▶
+    --marker=✓
+    --layout=reverse
+    --border=rounded
+    --height=70%
     --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
     --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54"
