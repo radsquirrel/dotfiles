@@ -25,3 +25,10 @@ set --export FZF_DEFAULT_OPTS "
     --height=70%
     --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
     --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54"
+if command --query exa
+    set --export fzf_preview_dir_cmd command exa --all --long --header \
+        --sort newest --color=always --icons
+else
+    set --export fzf_preview_dir_cmd command ls --format=long --color=auto \
+        --human-readable --sort=time --reverse
+end
