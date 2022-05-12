@@ -198,6 +198,8 @@ inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
+let g:markdown_fenced_languages = ['c', 'cpp', 'html', 'json', 'python', 'sh']
+
 augroup vimrc
     " Automatic rename of tmux window
     if exists('$TMUX') && !exists('$NORENAME')
