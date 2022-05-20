@@ -37,6 +37,10 @@ if status is-interactive
         theme_gruvbox dark
     end
 
+    if command --query navi
+        navi widget fish | source
+    end
+
     if command --query git
         abbr --add --global g git
     end
