@@ -6,7 +6,7 @@
 	cscope = !.git/hooks/cscope
 	l1 = log --decorate --oneline --graph
 	last = log -1
-	mr = "!f() { git fetch \"$1\" \"merge-requests/$2/head:merge-request-$2\" && git checkout \"merge-request-$2\"; }; f"
+	mr = "!f() { git fetch --force \"$1\" \"merge-requests/$2/head:merge-request-$2\" && git checkout \"merge-request-$2\"; }; f"
 	rbc = rebase --continue
 	rbi = rebase --interactive
 	rma = remote add
