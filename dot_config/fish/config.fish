@@ -41,6 +41,8 @@ if status is-interactive
         navi widget fish | source
     end
 
+    abbr --add --global fap fish_add_path
+
     if command --query git
         abbr --add --global g git
     end
