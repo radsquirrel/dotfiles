@@ -1,5 +1,6 @@
 {
   "suggest.labelMaxLength": 60,
+  "clangd.inlayHints.enable":false,
   "coc.preferences.formatOnType": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
