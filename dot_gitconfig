@@ -27,6 +27,6 @@
 [merge]
 	tool = fugitive
 [mergetool "fugitive"]
-	cmd = vim -f -c \"Git diff\" \"$MERGED\"
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [rebase]
 	autosquash = true
