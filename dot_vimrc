@@ -71,11 +71,11 @@ silent! if plug#begin()
         nmap <Leader>b :Buffers<CR>
         nmap <Leader>h :History<CR>
         nmap <Leader>t :BTags<CR>
-        nmap <Leader>T :Tags<CR>
+        nmap <silent> <Leader>T :Tags<Space><c-r><c-w><CR>
         nmap <Leader>l :BLines<CR>
         nmap <Leader>L :Lines<CR>
         nmap <Leader>' :Marks<CR>
-        nmap <Leader>/ :Rg<Space>
+        nmap <silent> <Leader>/ :Rg<Space><c-r><c-w><CR>
         nmap <Leader>H :Helptags!<CR>
         nmap <Leader>: :History:<CR>
         nmap <Leader>s :Filetypes<CR>
