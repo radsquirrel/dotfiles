@@ -39,10 +39,7 @@ silent! if plug#begin()
     Plug 'AlessandroYorba/Despacio'
     Plug 'cocopon/iceberg.vim'
     Plug 'w0ng/vim-hybrid'
-    Plug 'nightsense/snow'
-    Plug 'nightsense/stellarized'
     Plug 'arcticicestudio/nord-vim'
-    Plug 'nightsense/cosmic_latte'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     let g:airline_powerline_fonts = 1
