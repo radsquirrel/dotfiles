@@ -1,0 +1,5 @@
+cscope.out
+.cache/
+oe-logs
+oe-workdir
+tags
