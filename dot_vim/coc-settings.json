@@ -2,9 +2,11 @@
   "suggest.labelMaxLength": 60,
   "clangd.inlayHints.enable":false,
   "coc.preferences.formatOnType": true,
+  "codeLens.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
   "diagnostic-languageserver.filetypes": {
     "vim": "vint",
     "sh": "shellcheck",
@@ -43,5 +45,17 @@
     "value": "",
     "variable": "ﳛ",
     "default": ""
-  }
+  },
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 5
+  },
+  "snippet.statusText": "",
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 5
+  },
+  "suggest.virtualText": true
 }
