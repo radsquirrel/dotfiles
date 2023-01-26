@@ -17,11 +17,10 @@ end
 if status is-login && functions --query replay
     replay source /etc/profile
 
-    switch "$DESKTOP_SESSION"
-        case i3
-            if command --query gnome-keyring-daemon
-                replay "eval \$(gnome-keyring-daemon --start 2>/dev/null); export SSH_AUTH_SOCK"
-            end
+    if test -z $SSH_AUTH_SOCK
+        if command --query gnome-keyring-daemon
+            replay "eval \$(gnome-keyring-daemon --start 2>/dev/null); export SSH_AUTH_SOCK"
+        end
     end
 end
 
