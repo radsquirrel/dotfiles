@@ -42,6 +42,8 @@ if status is-interactive
 
     if command --query navi
         navi widget fish | source
+        bind --mode default --sets-mode insert \cg _navi_smart_replace
+        bind --mode visual --sets-mode insert \cg _navi_smart_replace
     end
 
     if command --query zoxide
