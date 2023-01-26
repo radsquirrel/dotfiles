@@ -1,5 +1,4 @@
 {
-  "clangd.inlayHints.enable":false,
   "coc.preferences.formatOnType": true,
   "codeLens.enable": true,
   "diagnostic.errorSign": "✘",
@@ -22,6 +21,7 @@
     "rounded": true,
     "winblend": 5
   },
+  "inlayHint.enable": false,
   "snippet.statusText": "",
   "suggest.completionItemKindLabels": {
     "class": "",
