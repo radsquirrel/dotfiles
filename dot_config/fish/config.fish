@@ -36,6 +36,10 @@ if status is-interactive
         theme_gruvbox dark
     end
 
+    if [ $TERM = linux ]
+        fish_config prompt choose default
+    end
+
     if command --query navi
         navi widget fish | source
     end
