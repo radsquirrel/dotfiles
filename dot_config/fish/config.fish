@@ -41,6 +41,10 @@ if status is-interactive
         navi widget fish | source
     end
 
+    if command --query zoxide
+        zoxide init fish | source
+    end
+
     abbr --add --global fap fish_add_path
 
     if command --query git

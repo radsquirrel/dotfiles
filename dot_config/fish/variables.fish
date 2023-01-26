@@ -7,7 +7,6 @@ set fish_cursor_visual block blink
 set fish_cursor_unknown block blink
 set fish_vi_force_cursor
 
-set Z_DATA "$Z_DATA_DIR/data-"(id --user --name)
 if command --query nvim
     set --export EDITOR nvim
     set --export MANPAGER "nvim +Man!"
