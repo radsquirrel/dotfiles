@@ -86,6 +86,11 @@ silent! if plug#begin()
     Plug 'blankname/vim-fish'
     Plug 'kergoth/vim-bitbake'
     Plug 'f4z3r/cheat.vim'
+    if has('nvim')
+        Plug 'tamton-aquib/duck.nvim'
+        nnoremap <leader>dd :lua require("duck").hatch("🦆")<CR>
+        nnoremap <leader>dc :lua require("duck").cook("🦆")<CR>
+    endif
     if v:version >= 800
         Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
         let g:pymode_lint_on_fly = 1
