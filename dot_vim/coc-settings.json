@@ -57,5 +57,6 @@
     "winblend": 5
   },
   "suggest.labelMaxLength": 60,
-  "suggest.virtualText": true
+  "suggest.virtualText": true,
+  "snippets.ultisnips.pythonPrompt": false 
 }
