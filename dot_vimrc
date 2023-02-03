@@ -85,6 +85,7 @@ silent! if plug#begin()
     Plug 'airblade/vim-gitgutter'
     Plug 'blankname/vim-fish'
     Plug 'kergoth/vim-bitbake'
+    Plug 'f4z3r/cheat.vim'
     if v:version >= 800
         Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
         let g:pymode_lint_on_fly = 1
