@@ -82,6 +82,8 @@ silent! if plug#begin()
         nmap <Leader>M :Maps<CR>
     endif
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'airblade/vim-gitgutter'
     Plug 'blankname/vim-fish'
     Plug 'kergoth/vim-bitbake'
