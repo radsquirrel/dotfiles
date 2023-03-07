@@ -86,6 +86,7 @@ silent! if plug#begin()
     Plug 'tpope/vim-rhubarb'
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'airblade/vim-gitgutter'
+    let g:gitgutter_override_sign_column_highlight = 1
     nmap <Leader>gn <Plug>(GitGutterNextHunk)
     nmap <Leader>gp <Plug>(GitGutterPrevHunk)
     nmap <Leader>ga <Plug>(GitGutterStageHunk)
@@ -140,6 +141,14 @@ endif
 
 augroup MyColors
     autocmd!
+    autocmd ColorScheme gruvbox highlight SignColumn ctermbg=235 guibg=#282828
+    autocmd ColorScheme gruvbox highlight GruvboxGreenSign ctermfg=142 ctermbg=235 guifg=#b8bb26 guibg=#282828
+    autocmd ColorScheme gruvbox highlight GruvboxAquaSign ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#282828
+    autocmd ColorScheme gruvbox highlight GruvboxBlueSign ctermfg=109 ctermbg=235 guifg=#83a598 guibg=#282828
+    autocmd ColorScheme gruvbox highlight GruvboxYellowSign ctermfg=214 ctermbg=235 guifg=#fabd2f guibg=#282828
+    autocmd ColorScheme gruvbox highlight GruvboxRedSign ctermfg=167 ctermbg=235 guifg=#fb4934 guibg=#282828
+    autocmd ColorScheme gruvbox highlight GruvboxPurpleSign ctermfg=175 ctermbg=235 guifg=#d3869b guibg=#282828
+    autocmd ColorScheme gruvbox highlight GruvboxOrangeSign ctermfg=208 ctermbg=235 guifg=#fe8019 guibg=#282828
     autocmd ColorScheme * highlight Comment cterm=italic gui=italic
     autocmd ColorScheme * set termguicolors
 augroup END
