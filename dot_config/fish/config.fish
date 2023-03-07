@@ -52,6 +52,13 @@ if status is-interactive
 
     abbr --add --global fap fish_add_path
 
+    if command --query task
+        abbr --add --global t task
+        abbr --add --global ta task add
+        abbr --add --global tm task modify
+        abbr --add --global tn task annotate
+    end
+
     if command --query git
         abbr --add --global g git
     end
