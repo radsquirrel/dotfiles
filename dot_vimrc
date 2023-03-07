@@ -87,6 +87,11 @@ silent! if plug#begin()
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'airblade/vim-gitgutter'
     let g:gitgutter_override_sign_column_highlight = 1
+    let g:gitgutter_sign_added = ''
+    let g:gitgutter_sign_modified = ''
+    let g:gitgutter_sign_removed = ''
+    let g:gitgutter_sign_removed_first_line = ''
+    let g:gitgutter_sign_modified_removed = ''
     nmap <Leader>gn <Plug>(GitGutterNextHunk)
     nmap <Leader>gp <Plug>(GitGutterPrevHunk)
     nmap <Leader>ga <Plug>(GitGutterStageHunk)
