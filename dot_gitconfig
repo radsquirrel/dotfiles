@@ -17,6 +17,8 @@
 	st = status
 [diff]
 	tool = vimdiff
+[gerrit]
+	createChangeId = false
 [help]
 	autocorrect = -1
 [include]
