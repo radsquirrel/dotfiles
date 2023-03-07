@@ -154,6 +154,20 @@ augroup MyColors
     autocmd ColorScheme gruvbox highlight GruvboxRedSign ctermfg=167 ctermbg=235 guifg=#fb4934 guibg=#282828
     autocmd ColorScheme gruvbox highlight GruvboxPurpleSign ctermfg=175 ctermbg=235 guifg=#d3869b guibg=#282828
     autocmd ColorScheme gruvbox highlight GruvboxOrangeSign ctermfg=208 ctermbg=235 guifg=#fe8019 guibg=#282828
+    autocmd ColorScheme * let g:fzf_colors =
+        \ {'fg':    ['fg', 'Normal'],
+        \ 'bg':      ['bg', 'Normal'],
+        \ 'hl':      ['fg', 'Comment'],
+        \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+        \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+        \ 'hl+':     ['fg', 'Statement'],
+        \ 'info':    ['fg', 'PreProc'],
+        \ 'border':  ['fg', 'Ignore'],
+        \ 'prompt':  ['fg', 'Conditional'],
+        \ 'pointer': ['fg', 'Exception'],
+        \ 'marker':  ['fg', 'Keyword'],
+        \ 'spinner': ['fg', 'Label'],
+        \ 'header':  ['fg', 'Comment'] }
     autocmd ColorScheme * highlight Comment cterm=italic gui=italic
     autocmd ColorScheme * set termguicolors
 augroup END
