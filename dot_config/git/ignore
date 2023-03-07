@@ -1,4 +1,7 @@
 cscope.out
+cscope.files
+cscope.in.out
+cscope.po.out
 .cache/
 oe-logs
 oe-workdir
