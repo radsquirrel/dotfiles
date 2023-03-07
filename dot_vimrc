@@ -138,6 +138,12 @@ silent! if plug#begin()
     call plug#end()
 endif
 
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * highlight Comment cterm=italic gui=italic
+    autocmd ColorScheme * set termguicolors
+augroup END
+
 " ----------------------------------------------------------------------------
 " <F8> | Color scheme selector
 " ----------------------------------------------------------------------------
@@ -155,8 +161,6 @@ function! s:rotate_colors()
     let name = remove(s:colors, 0)
     call add(s:colors, name)
     execute 'colorscheme' name
-    highlight Comment cterm=italic
-    highlight Comment gui=italic
     redraw
     echo name
 endfunction
@@ -164,9 +168,6 @@ nnoremap <silent> <F8> :call <SID>rotate_colors()<cr>
 
 silent! colorscheme gruvbox
 set background=dark
-set termguicolors
-highlight Comment cterm=italic
-highlight Comment gui=italic
 
 silent! set ttymouse=xterm2
 set mouse=a
