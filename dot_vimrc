@@ -82,9 +82,14 @@ silent! if plug#begin()
         nmap <Leader>M :Maps<CR>
     endif
     Plug 'tpope/vim-fugitive'
+    nmap <Leader>gs :Git<CR>
     Plug 'tpope/vim-rhubarb'
     Plug 'shumphrey/fugitive-gitlab.vim'
     Plug 'airblade/vim-gitgutter'
+    nmap <Leader>gn <Plug>(GitGutterNextHunk)
+    nmap <Leader>gp <Plug>(GitGutterPrevHunk)
+    nmap <Leader>ga <Plug>(GitGutterStageHunk)
+    nmap <Leader>gu <Plug>(GitGutterUndoHunk)
     Plug 'blankname/vim-fish'
     Plug 'kergoth/vim-bitbake'
     Plug 'f4z3r/cheat.vim'
