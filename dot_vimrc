@@ -141,6 +141,8 @@ silent! if plug#begin()
     Plug 'honza/vim-snippets'
     Plug 'ojroques/vim-oscyank'
     autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankRegister +' | endif
+    Plug 'ntpeters/vim-better-whitespace'
+    let g:strip_only_modified_lines=1
     call plug#end()
 endif
 
