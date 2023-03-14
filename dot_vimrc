@@ -144,6 +144,7 @@ silent! if plug#begin()
     autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankRegister +' | endif
     Plug 'ntpeters/vim-better-whitespace'
     let g:strip_only_modified_lines=1
+    let g:better_whitespace_filetypes_blacklist=['taskedit']
     call plug#end()
 endif
 
