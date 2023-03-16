@@ -29,8 +29,8 @@
 [fetch]
 	prune = true
 [merge]
-	tool = fugitive
-[mergetool "fugitive"]
-	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+	tool = vimdiff4
+[mergetool "vimdiff4"]
+	cmd = $EDITOR -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [rebase]
 	autosquash = true
