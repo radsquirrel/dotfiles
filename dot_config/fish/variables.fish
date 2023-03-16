@@ -15,18 +15,11 @@ else if command --query vim
     set --export MANPAGER "vim -M +MANPAGER -"
 end
 set --export VISUAL $EDITOR
-set --export FZF_DEFAULT_OPTS "
-    --prompt=🔍
-    --pointer=▶
-    --marker=✓
-    --layout=reverse
-    --border=rounded
-    --height=70%
-    --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
-    --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54"
+set --export FZF_DEFAULT_OPTS '--prompt=🔍' '--pointer=▶' '--marker=✓' '--layout=reverse'
 
-set fzf_dir_opts '--bind=ctrl-o:execute-silent(open {} &> /dev/tty 2>&1),ctrl-e:execute(vim {} &> /dev/tty 2>&1)'
-set fzf_processes_opts '--bind=ctrl-k:execute(kill {1})'
+set fzf_dir_opts '--border=rounded' \
+    '--bind=ctrl-o:execute-silent(open {} &> /dev/tty 2>&1),ctrl-e:execute(vim {} &> /dev/tty 2>&1)'
+set fzf_processes_opts '--border=rounded' '--bind=ctrl-k:execute(kill {1})'
 
 if command --query exa
     set --export fzf_preview_dir_cmd command exa --all --long --header \
