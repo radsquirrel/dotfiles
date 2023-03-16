@@ -62,6 +62,9 @@ if status is-interactive
     if command --query git
         abbr --add --global g git
     end
+    if command --query navi
+        abbr --add --global n navi
+    end
     abbr --add --global l ls
     abbr --add --global v vim
     abbr --add --global vi vim
