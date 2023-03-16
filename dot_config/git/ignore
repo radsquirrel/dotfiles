@@ -6,3 +6,4 @@ cscope.po.out
 oe-logs
 oe-workdir
 tags
+*.orig
