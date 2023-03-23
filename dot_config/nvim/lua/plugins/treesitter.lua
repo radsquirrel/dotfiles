@@ -1,0 +1,67 @@
+return {
+    {
+        "andymass/vim-matchup",
+        init = function()
+            vim.g.matchup_matchparen_offscreen = { method = "popup" }
+        end,
+    },
+    {
+        "mrjones2014/nvim-ts-rainbow",
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            ensure_installed = {
+                "bash",
+                "c",
+                "cmake",
+                "cpp",
+                "css",
+                "devicetree",
+                "diff",
+                "dockerfile",
+                "fish",
+                "gitattributes",
+                "gitignore",
+                "git_rebase",
+                "help",
+                "html",
+                "http",
+                "javascript",
+                "json",
+                "json5",
+                "jsonc",
+                "lua",
+                "make",
+                "markdown",
+                "markdown_inline",
+                "meson",
+                "ninja",
+                "php",
+                "python",
+                "regex",
+                "rst",
+                "rust",
+                "scss",
+                "sql",
+                "toml",
+                "vim",
+                "yaml",
+            },
+            matchup = {
+                enable = true,
+            },
+            highlight = { enable = true },
+            query_linter = {
+                enable = true,
+                use_virtual_text = true,
+                lint_events = { "BufWrite", "CursorHold" },
+            },
+            rainbow = {
+                enable = true,
+                extended_mode = true,
+                max_file_lines = nil,
+            },
+        },
+    },
+}
