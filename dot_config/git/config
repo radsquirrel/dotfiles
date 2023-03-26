@@ -22,9 +22,9 @@
 [help]
 	autocorrect = -1
 [include]
-	path = .gitconfig-local
+	path = local
 [init]
-	templatedir = ~/.config/git-template
+	templatedir = ~/.config/git/templates
 	defaultBranch = main
 [fetch]
 	prune = true
