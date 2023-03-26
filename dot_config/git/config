@@ -15,6 +15,8 @@
 	rmr = remote remove
 	rmv = remote -v
 	st = status
+[commit]
+	template = ~/.config/git/commit-message-template
 [diff]
 	tool = vimdiff
 [gerrit]

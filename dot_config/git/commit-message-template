@@ -1,0 +1,46 @@
+# Title: Summary - start upper case and don't end with a period
+# Imperative: "fix", not "fixed".  "Add", not "added".
+# No more than 50 chars. |------ which is here --|
+
+# Remember a blank line between title and body.
+
+# Body: Imperative.  Explain *what* and *why* (not *how*).
+# Wrap at 72 chars. |--------------------------------- which is here:--|
+# Answer the following questions.
+# =============================
+# Why is this change necessary?
+# =============================
+
+# This question tells reviewers of your pull request what to expect in
+# the commit, allowing them to more easily identify and point out
+# unrelated changes.
+
+# ==============================
+# How does it address the issue?
+# ==============================
+
+# Describe, at a high level, what was done to affect change. For
+# example:
+
+# Introduce a red/black tree to increase search speed
+# or
+# Remove <troublesome gem X>, which was causing <specific description of
+# issue introduced by gem>
+
+# If your change is obvious, you may be able to omit addressing this
+# question.
+
+# ========================================
+# What side effects does this change have?
+# ========================================
+
+# This is the most important question to answer, as it can point out
+# problems where you are making too many changes in one commit or
+# branch. One or two bullet points for related changes may be okay, but
+# five or six are likely indicators of a commit that is doing too many
+# things.
+
+# Motiviation, and additional reading:
+# https://chris.beams.io/posts/git-commit
+# https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message
+# https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
