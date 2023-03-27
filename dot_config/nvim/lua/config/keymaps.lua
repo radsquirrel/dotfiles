@@ -14,6 +14,8 @@ vim.keymap.set("v", "<Down>", "<Nop>", { desc = "arrow key retraining" })
 vim.keymap.set("v", "<Left>", "<Nop>", { desc = "arrow key retraining" })
 vim.keymap.set("v", "<Right>", "<Nop>", { desc = "arrow key retraining" })
 
+vim.keymap.del({ "n", "x" }, "gw", { desc = "Search word under cursor" })
+
 local wk = require("which-key")
 wk.register({ ["<leader>Z"] = { "<cmd>Telescope zoxide list<CR>", "zoxide" } })
 wk.register({ ["<leader>ua"] = { "<cmd>Alpha<CR>", "Dashboard" } })
