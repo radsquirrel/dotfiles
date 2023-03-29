@@ -1,4 +1,5 @@
 return {
+    { "s1n7ax/nvim-window-picker", config = true },
     {
         "akinsho/bufferline.nvim",
         opts = { options = { separator_style = "slant" } },
