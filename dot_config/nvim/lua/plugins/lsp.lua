@@ -19,6 +19,9 @@ return {
     {
         "neovim/nvim-lspconfig",
         opts = {
+            diagnostics = {
+                virtual_text = false,
+            },
             ---@type lspconfig.options
             servers = {
                 bashls = {},
