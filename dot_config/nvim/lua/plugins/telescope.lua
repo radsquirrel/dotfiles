@@ -2,7 +2,11 @@ return {
     {
         "ahmedkhalf/project.nvim",
         config = function()
-            require("project_nvim").setup({})
+            require("project_nvim").setup({
+                silent_chdir = false,
+                scope_chdir = "win",
+                ignore_lsp = { "null-ls" },
+            })
             require("telescope").load_extension("projects")
         end,
     },
