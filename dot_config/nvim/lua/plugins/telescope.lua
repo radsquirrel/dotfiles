@@ -22,5 +22,14 @@ return {
                 require("telescope").load_extension("zoxide")
             end,
         },
+        opts = {
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<C-u>"] = false,
+                    },
+                },
+            },
+        },
     },
 }
