@@ -22,6 +22,23 @@ return {
                 require("telescope").load_extension("zoxide")
             end,
         },
+        keys = {
+            {
+                "<leader>fN",
+                function()
+                    local notes = require("notes")
+                    require("telescope.builtin").live_grep({
+                        attach_mappings = function(_, map)
+                            map("i", "<C-x>", notes.create_file)
+                            return true
+                        end,
+                        cwd = notes.dir,
+                        prompt_title = "Find Notes",
+                    })
+                end,
+                desc = "Find Notes",
+            },
+        },
         opts = {
             defaults = {
                 mappings = {

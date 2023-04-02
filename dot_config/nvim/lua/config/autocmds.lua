@@ -56,3 +56,27 @@ if os.getenv("TMUX") ~= nil then
         group = "init_lua",
     })
 end
+
+local notes_dir = require("notes").dir
+vim.api.nvim_create_augroup("config_notes", {})
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    pattern = { vim.fn.expand(notes_dir) .. "*" },
+    callback = function()
+        local dir = vim.fn.expand("%:p:h") .. "/"
+        local file = vim.fn.split(vim.fn.expand("%:p"), dir)[1]
+        local job = require("plenary.job")
+        local add = job:new({
+            command = "git",
+            args = { "add", dir },
+            cwd = notes_dir,
+        })
+        add:sync()
+        local commit = job:new({
+            command = "git",
+            args = { "commit", "-am", "autocommit: '" .. file .. "'" },
+            cwd = notes_dir,
+        })
+        commit:sync()
+    end,
+    group = "config_notes",
+})
