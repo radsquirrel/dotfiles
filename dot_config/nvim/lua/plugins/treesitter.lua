@@ -24,7 +24,7 @@ return {
                 "gitattributes",
                 "gitignore",
                 "git_rebase",
-                "help",
+                "vimdoc",
                 "html",
                 "http",
                 "javascript",
