@@ -14,12 +14,10 @@ return {
         "telescope.nvim",
         dependencies = {
             "nvim-telescope/telescope-fzf-native.nvim",
-            "jvgrootveld/telescope-zoxide",
             "ahmedkhalf/project.nvim",
             build = "make",
             config = function()
                 require("telescope").load_extension("fzf")
-                require("telescope").load_extension("zoxide")
             end,
         },
         keys = {
