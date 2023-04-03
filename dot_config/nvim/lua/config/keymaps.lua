@@ -15,11 +15,3 @@ vim.keymap.set("v", "<Left>", "<Nop>", { desc = "arrow key retraining" })
 vim.keymap.set("v", "<Right>", "<Nop>", { desc = "arrow key retraining" })
 
 vim.keymap.del({ "n", "x" }, "gw", { desc = "Search word under cursor" })
-
-local wk = require("which-key")
-wk.register({
-    ["<leader>Z"] = { "<cmd>Telescope zoxide list<CR>", "Change Directory" },
-})
-wk.register({ ["<leader><tab>c"] = { "<cmd>TCD<CR>", "Change Tab Directory" } })
-wk.register({ ["<leader>wc"] = { "<cmd>WCD<CR>", "Change Window Directory" } })
-wk.register({ ["<leader>ua"] = { "<cmd>Alpha<CR>", "Dashboard" } })
