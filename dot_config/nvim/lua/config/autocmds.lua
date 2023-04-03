@@ -1,4 +1,11 @@
 vim.api.nvim_create_augroup("init_lua", {})
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "rst" },
+    callback = function()
+        vim.wo.spell = true
+    end,
+    group = "init_lua",
+})
 vim.api.nvim_create_autocmd(
     -- Add format option 'w' to add trailing white space, indicating that paragraph
     -- continues on next line. This is to be used with mutt's 'text_flowed' option.
