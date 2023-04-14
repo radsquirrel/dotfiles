@@ -16,8 +16,8 @@ return {
             require("gitlinker").setup({ callbacks = callbacks })
         end,
     },
-    { "tpope/vim-fugitive" },
-    { "tpope/vim-sleuth" },
+    { "tpope/vim-fugitive", cmd = "Git" },
+    { "tpope/vim-sleuth", event = "BufReadPre" },
     {
         "simrat39/symbols-outline.nvim",
         keys = {

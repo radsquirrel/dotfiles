@@ -1,5 +1,13 @@
 return {
-    { "s1n7ax/nvim-window-picker", config = true },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        dependencies = "s1n7ax/nvim-window-picker",
+    },
+    {
+        "s1n7ax/nvim-window-picker",
+        lazy = true,
+        config = true,
+    },
     {
         "akinsho/bufferline.nvim",
         opts = { options = { separator_style = "slant" } },
@@ -9,6 +17,7 @@ return {
         build = function()
             vim.fn["mkdp#util#install"]()
         end,
+        ft = "markdown",
     },
     {
         "tamton-aquib/duck.nvim",
