@@ -1,0 +1,10 @@
+[Unit]
+Description=Update lazynvim plugins timer
+
+[Timer]
+RandomizedDelaySec=3h
+OnCalendar=*-*-* 02:00:00
+Unit=lazynvim-update.service
+
+[Install]
+WantedBy=timers.target
