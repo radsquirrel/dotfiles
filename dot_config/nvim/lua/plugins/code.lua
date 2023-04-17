@@ -40,7 +40,16 @@ return {
                 desc = "Neogen Comment",
             },
         },
-        opts = { snippet_engine = "luasnip" },
+        opts = {
+            snippet_engine = "luasnip",
+            languages = {
+                python = {
+                    template = {
+                        annotation_convention = "reST",
+                    },
+                },
+            },
+        },
     },
     {
         "smjonas/inc-rename.nvim",
