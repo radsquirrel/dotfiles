@@ -1,20 +1,8 @@
 return {
     {
-        "ahmedkhalf/project.nvim",
-        config = function()
-            require("project_nvim").setup({
-                silent_chdir = false,
-                scope_chdir = "win",
-                ignore_lsp = { "null-ls" },
-            })
-            require("telescope").load_extension("projects")
-        end,
-    },
-    {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-telescope/telescope-fzf-native.nvim",
-            "ahmedkhalf/project.nvim",
             build = "make",
             config = function()
                 require("telescope").load_extension("fzf")
