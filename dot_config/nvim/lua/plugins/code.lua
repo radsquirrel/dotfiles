@@ -16,6 +16,22 @@ return {
             require("gitlinker").setup({ callbacks = callbacks })
         end,
     },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            {
+                "radsqirrel/cmp-jira",
+                dev = true,
+                config = true,
+            },
+        },
+        opts = function(_, opts)
+            local cmp = require("cmp")
+            opts.sources = cmp.config.sources(
+                vim.list_extend(opts.sources, { { name = "cmp_jira" } })
+            )
+        end,
+    },
     { "tpope/vim-fugitive", cmd = "Git" },
     { "tpope/vim-sleuth", event = "BufReadPre" },
     {
