@@ -21,6 +21,12 @@ require("lazy").setup({
         lazy = false,
         version = false,
     },
+    dev = {
+        path = "~/workspace/neovim",
+        patterns = {
+            "radsquirrel",
+        },
+    },
     install = { colorscheme = { "tokyonight", "habamax" } },
     checker = { enabled = true },
     performance = {
