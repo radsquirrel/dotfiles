@@ -6,6 +6,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
     group = "init_lua",
 })
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "Jenkinsfile" },
+    callback = function()
+        vim.opt_local.filetype = "groovy"
+    end,
+    group = "init_lua",
+})
 vim.api.nvim_create_autocmd(
     -- Add format option 'w' to add trailing white space, indicating that paragraph
     -- continues on next line. This is to be used with mutt's 'text_flowed' option.
