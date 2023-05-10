@@ -27,6 +27,9 @@ return {
             {
                 "mtoohey31/cmp-fish",
             },
+            {
+                "onsails/lspkind.nvim",
+            },
         },
         opts = function(_, opts)
             local cmp = require("cmp")
@@ -34,6 +37,18 @@ return {
                 { name = "cmp_jira" },
                 { name = "fish" },
             }))
+            opts.formatting.format = require("lspkind").cmp_format({
+                maxwidth = 50,
+                mode = "symbol_text",
+                menu = {
+                    buffer = "[Buffer]",
+                    path = "[Path]",
+                    nvim_lsp = "[LSP]",
+                    luasnip = "[LuaSnip]",
+                    cmp_jira = "[Jira]",
+                    fish = "[Fish]",
+                },
+            })
         end,
     },
     { "tpope/vim-fugitive", cmd = "Git" },
