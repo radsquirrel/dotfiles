@@ -24,12 +24,16 @@ return {
                 dev = true,
                 config = true,
             },
+            {
+                "mtoohey31/cmp-fish",
+            },
         },
         opts = function(_, opts)
             local cmp = require("cmp")
-            opts.sources = cmp.config.sources(
-                vim.list_extend(opts.sources, { { name = "cmp_jira" } })
-            )
+            opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+                { name = "cmp_jira" },
+                { name = "fish" },
+            }))
         end,
     },
     { "tpope/vim-fugitive", cmd = "Git" },
