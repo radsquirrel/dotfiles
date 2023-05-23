@@ -7,3 +7,4 @@ oe-logs
 oe-workdir
 tags
 *.orig
+__pycache__/
