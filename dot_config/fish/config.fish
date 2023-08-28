@@ -32,7 +32,13 @@ fish_add_path --global --move ~/.local/bin
 if status is-interactive
     set --global fish_greeting
 
-    if functions --query theme_gruvbox
+    if test -d $HOME/.config/base16-shell/
+        set BASE16_SHELL "$HOME/.config/base16-shell/"
+        source "$BASE16_SHELL/profile_helper.fish"
+        if not test -f $HOME/.base16_theme
+            base16-gruvbox-dark-medium
+        end
+    else if functions --query theme_gruvbox
         theme_gruvbox dark
     end
 
