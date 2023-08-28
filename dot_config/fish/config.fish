@@ -71,6 +71,6 @@ if status is-interactive
     abbr --add --global view 'vim -R'
 
     if command --query cowsay
-        date +"It's %l:%M%P"| cowsay
+        date +"It's %l:%M%P" | cowsay
     end
 end
