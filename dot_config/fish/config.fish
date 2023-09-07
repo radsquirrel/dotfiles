@@ -84,6 +84,21 @@ if status is-interactive
     abbr --add --global vi vim
     abbr --add --global view 'vim -R'
 
+    set --local uid (id --user)
+    if test $uid = 0
+        if command --query nvim
+            function vim --wraps nvim
+                command nvim -u NONE $argv
+            end
+        end
+    else
+        if command --query nvim
+            function vim --wraps nvim
+                command nvim $argv
+            end
+        end
+    end
+
     if command --query cowsay
         date +"It's %l:%M%P" | cowsay
     end
