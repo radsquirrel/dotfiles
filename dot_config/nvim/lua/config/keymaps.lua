@@ -13,5 +13,3 @@ vim.keymap.set("v", "<Up>", "<Nop>", { desc = "arrow key retraining" })
 vim.keymap.set("v", "<Down>", "<Nop>", { desc = "arrow key retraining" })
 vim.keymap.set("v", "<Left>", "<Nop>", { desc = "arrow key retraining" })
 vim.keymap.set("v", "<Right>", "<Nop>", { desc = "arrow key retraining" })
-
-vim.keymap.del({ "n", "x" }, "gw", { desc = "Search word under cursor" })
