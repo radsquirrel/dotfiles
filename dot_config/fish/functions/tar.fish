@@ -1,3 +1,3 @@
 function tar --wraps tar
-    command tar --sparse $argv
+    command tar -S $argv
 end
