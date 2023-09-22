@@ -90,6 +90,9 @@ if status is-interactive
             function vim --wraps nvim
                 command nvim -u NONE $argv
             end
+            function nvim --wraps nvim
+                command nvim -u NONE $argv
+            end
         else
             function vim --wraps vim
                 command vim -u NONE $argv
