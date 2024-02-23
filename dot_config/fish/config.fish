@@ -59,6 +59,12 @@ if status is-interactive
         bind --mode default --sets-mode insert \cg _navi_smart_replace
         bind --mode visual --sets-mode insert \cg _navi_smart_replace
     end
+    if command --query atuin
+        set -gx ATUIN_NOBIND true
+        atuin init fish | source
+        bind --mode default \cr _atuin_search
+        bind --mode insert \cr _atuin_search
+    end
 
     if command --query zoxide
         zoxide init fish | source
