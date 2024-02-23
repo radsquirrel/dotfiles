@@ -1,6 +1,6 @@
 if command --query exa
     function ll --wraps exa
-        command exa --long --header --sort newest $argv
+        command exa --long --binary --header --sort newest $argv
     end
 else
     function ll --wraps ls

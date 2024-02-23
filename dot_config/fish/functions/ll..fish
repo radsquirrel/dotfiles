@@ -1,6 +1,6 @@
 if command --query exa
     function ll. --wraps exa
-        command exa --all --long --header --sort newest --ignore-glob "[!.]*" $argv
+        command exa --all --long --binary --header --sort newest --ignore-glob "[!.]*" $argv
     end
 else
     function ll. --wraps ls
