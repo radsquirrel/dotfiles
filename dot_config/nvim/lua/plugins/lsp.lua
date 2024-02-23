@@ -48,21 +48,10 @@ return {
         },
     },
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        opts = function(_, opts)
-            local nls = require("null-ls")
-            vim.list_extend(opts.sources, {
-                nls.builtins.code_actions.proselint,
-                nls.builtins.diagnostics.cppcheck,
-                nls.builtins.diagnostics.gitlint,
-                nls.builtins.diagnostics.markdownlint,
-                nls.builtins.diagnostics.proselint,
-                nls.builtins.diagnostics.rstcheck,
-                nls.builtins.diagnostics.vint,
-                nls.builtins.formatting.beautysh,
-                nls.builtins.formatting.black,
-                nls.builtins.formatting.markdownlint,
-            })
-        end,
+        "mfussenegger/nvim-lint",
+        linters_by_ft = {
+            cpp = { "cppcheck" },
+            fish = { "fish" },
+        },
     },
 }
