@@ -36,3 +36,5 @@
 	cmd = $EDITOR -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [rebase]
 	autosquash = true
+[branch]
+	sort = committerdate
