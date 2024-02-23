@@ -19,6 +19,7 @@
 	template = ~/.config/git/commit-message-template
 [diff]
 	tool = vimdiff
+	algorithm = histogram
 [gerrit]
 	createChangeId = false
 [help]
