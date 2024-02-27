@@ -44,14 +44,6 @@ if status is-interactive
 
     if [ $TERM = linux ]
         fish_config prompt choose default
-    else
-        function transient_prompt_func
-            if test $transient_pipestatus[-1] -eq 0
-                printf (set_color green)'❯ '
-            else
-                printf (set_color red)'❯ '
-            end
-        end
     end
 
     if command --query navi
