@@ -4,14 +4,14 @@ return {
         opts = function(_, opts)
             vim.list_extend(opts.ensure_installed, {
                 "beautysh",
-                "black",
-                "cmakelint",
+                "codespell",
+                "cspell",
                 "gitlint",
-                "markdownlint",
                 "proselint",
+                "rstcheck",
                 "shellcheck",
-                "shfmt",
                 "stylua",
+                "systemdlint",
                 "vint",
             })
         end,
@@ -25,26 +25,11 @@ return {
             ---@type lspconfig.options
             servers = {
                 bashls = {},
-                clangd = {},
-                dockerls = {},
                 esbonio = {},
                 html = {},
-                marksman = {},
-                pyright = {},
-                yamlls = {},
                 vimls = {},
             },
             setup = {},
-        },
-    },
-    {
-        "neovim/nvim-lspconfig",
-        opts = {
-            setup = {
-                clangd = function(_, opts)
-                    opts.capabilities.offsetEncoding = { "utf-16" }
-                end,
-            },
         },
     },
     {

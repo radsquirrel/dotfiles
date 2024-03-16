@@ -1,9 +1,5 @@
 return {
     {
-        "sindrets/diffview.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-    },
-    {
         "ruifm/gitlinker.nvim",
         config = function()
             local statusOk, gitlinker = pcall(require, "local.gitlinker")
@@ -53,17 +49,6 @@ return {
     },
     { "tpope/vim-fugitive", cmd = "Git" },
     { "tpope/vim-sleuth", event = "BufReadPre" },
-    {
-        "simrat39/symbols-outline.nvim",
-        keys = {
-            {
-                "<leader>cs",
-                "<cmd>SymbolsOutline<cr>",
-                desc = "Symbols Outline",
-            },
-        },
-        config = true,
-    },
     {
         "danymat/neogen",
         keys = {
