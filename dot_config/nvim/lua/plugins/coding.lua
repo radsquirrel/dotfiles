@@ -1,4 +1,45 @@
+local ls = require("luasnip")
 return {
+    {
+        "L3MON4D3/LuaSnip",
+        config = function(_, opts)
+            ls.setup(opts)
+            require("luasnip.loaders.from_lua").lazy_load({
+                lazy_paths = { "~/.config/nvim/lua/snippets" },
+            })
+        end,
+        keys = {
+            { "<tab>", false },
+            { "<s-tab>", false },
+            {
+                "<C-j>",
+                function()
+                    if ls.expand_or_jumpable() then
+                        ls.expand_or_jump()
+                    end
+                end,
+                mode = { "i", "s" },
+            },
+            {
+                "<C-k>",
+                function()
+                    if ls.jumpable(-1) then
+                        ls.jump(-1)
+                    end
+                end,
+                mode = { "i", "s" },
+            },
+            {
+                "<C-l>",
+                function()
+                    if ls.choice_active() then
+                        ls.change_choice(1)
+                    end
+                end,
+                mode = "i",
+            },
+        },
+    },
     {
         "ruifm/gitlinker.nvim",
         config = function()
