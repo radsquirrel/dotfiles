@@ -14,6 +14,7 @@ local make_zoxide = function(title, command)
 end
 
 return {
+    { "kergoth/vim-bitbake" },
     { "f4z3r/cheat.vim" },
     { "folke/flash.nvim", enabled = false },
     {
