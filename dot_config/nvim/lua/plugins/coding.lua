@@ -1,9 +1,8 @@
-local ls = require("luasnip")
 return {
     {
         "L3MON4D3/LuaSnip",
         config = function(_, opts)
-            ls.setup(opts)
+            require("luasnip").setup(opts)
             require("luasnip.loaders.from_lua").lazy_load({
                 lazy_paths = { "~/.config/nvim/lua/snippets" },
             })
@@ -14,8 +13,8 @@ return {
             {
                 "<C-j>",
                 function()
-                    if ls.expand_or_jumpable() then
-                        ls.expand_or_jump()
+                    if require("luasnip").expand_or_jumpable() then
+                        require("luasnip").expand_or_jump()
                     end
                 end,
                 mode = { "i", "s" },
@@ -23,8 +22,8 @@ return {
             {
                 "<C-k>",
                 function()
-                    if ls.jumpable(-1) then
-                        ls.jump(-1)
+                    if require("luasnip").jumpable(-1) then
+                        require("luasnip").jump(-1)
                     end
                 end,
                 mode = { "i", "s" },
@@ -32,8 +31,8 @@ return {
             {
                 "<C-l>",
                 function()
-                    if ls.choice_active() then
-                        ls.change_choice(1)
+                    if require("luasnip").choice_active() then
+                        require("luasnip").change_choice(1)
                     end
                 end,
                 mode = "i",
