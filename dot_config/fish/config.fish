@@ -83,25 +83,9 @@ if status is-interactive
     abbr --add --global vi vim
     abbr --add --global view 'vim -R'
 
-    set --local uid (id --user)
-    if test $uid = 0
-        if command --query nvim
-            function vim --wraps nvim
-                command nvim -u NONE $argv
-            end
-            function nvim --wraps nvim
-                command nvim -u NONE $argv
-            end
-        else
-            function vim --wraps vim
-                command vim -u NONE $argv
-            end
-        end
-    else
-        if command --query nvim
-            function vim --wraps nvim
-                command nvim $argv
-            end
+    if command --query nvim
+        function vim --wraps nvim
+            command nvim $argv
         end
     end
 
