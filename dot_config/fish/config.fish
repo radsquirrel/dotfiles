@@ -63,6 +63,7 @@ if status is-interactive
     end
 
     abbr --add --global fap fish_add_path
+    abbr --add --global --position anywhere strace strace -s 128 -T -tt -y -Y -f
 
     if command --query task
         abbr --add --global t task
