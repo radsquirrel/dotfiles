@@ -39,3 +39,5 @@
 	autosquash = true
 [branch]
 	sort = committerdate
+[rerere]
+	enabled = true
