@@ -1,6 +1,6 @@
-if command --query exa
-    function l. --wraps exa
-        command exa --all --ignore-glob "[!.]*" $argv
+if command --query eza
+    function l. --wraps eza
+        command eza --all --ignore-glob "[!.]*" $argv
     end
 else
     function l. --wraps ls
