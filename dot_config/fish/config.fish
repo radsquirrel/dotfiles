@@ -27,6 +27,7 @@ end
 fish_add_path --global --move /opt/local/libexec/gnubin
 fish_add_path --global --move /opt/local/bin
 fish_add_path --global --move /opt/local/libexec/llvm-11/bin
+fish_add_path --global --move /usr/lib/ccache
 fish_add_path --global --move ~/.local/bin
 
 if status is-interactive
