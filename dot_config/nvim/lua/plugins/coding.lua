@@ -55,11 +55,11 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            {
-                "radsqirrel/cmp-jira",
-                dev = true,
-                config = true,
-            },
+            -- {
+            --     "radsqirrel/cmp-jira",
+            --     dev = true,
+            --     config = true,
+            -- },
             {
                 "mtoohey31/cmp-fish",
             },
