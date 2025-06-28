@@ -6,9 +6,6 @@ return {
         end,
     },
     {
-        "mrjones2014/nvim-ts-rainbow",
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
         opts = {
             ensure_installed = {
