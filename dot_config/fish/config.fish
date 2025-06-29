@@ -30,7 +30,7 @@ else
 end
 
 # automatically loads plugins under "$fisher_path"
-source "$__fish_config_dir/functions/fisher_path.fish"
+source "$__fish_config_dir/fisher_path.fish"
 
 if status is-interactive
     # Install fisher, if it doesn't exist
