@@ -3,6 +3,7 @@ function add_paths
     fish_add_path --global --move /opt/local/bin
     fish_add_path --global --move /opt/local/libexec/llvm-11/bin
     fish_add_path --global --move /usr/lib/ccache
+    fish_add_path --global --move "$WEZTERM_EXECUTABLE_DIR"
     fish_add_path --global --move ~/.local/bin
 end
 
