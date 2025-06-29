@@ -52,7 +52,7 @@ if status is-interactive
     end
 
     if status is-login && ! functions --query replay
-        echo "replay is not installed, cannot source /etc/profile"
+        echo "replay is not installed, cannot source /etc/profile" >&2
     end
 end
 
