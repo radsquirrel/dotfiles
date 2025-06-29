@@ -46,7 +46,9 @@ source "$__fish_config_dir/fisher_path.fish"
 if status is-interactive
     # Install fisher, if it doesn't exist
     if ! functions --query fisher
-        curl --silent --location https://git.io/fisher | source && fisher update
+        curl --silent --location https://git.io/fisher | source \
+            && fisher install jorgebucaran/fisher \
+            && fisher update
     end
 
     if status is-login && ! functions --query replay
