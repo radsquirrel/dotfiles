@@ -1,3 +1,11 @@
+function add_paths
+    fish_add_path --global --move /opt/local/libexec/gnubin
+    fish_add_path --global --move /opt/local/bin
+    fish_add_path --global --move /opt/local/libexec/llvm-11/bin
+    fish_add_path --global --move /usr/lib/ccache
+    fish_add_path --global --move ~/.local/bin
+end
+
 set fisher_path "$__fish_config_dir/plugins"
 
 set fish_cursor_default block blink
@@ -6,6 +14,9 @@ set fish_cursor_replace_one underscore blink
 set fish_cursor_visual block blink
 set fish_cursor_unknown block blink
 set fish_vi_force_cursor
+
+# add non-standard paths before searching for commands
+add_paths
 
 if command --query nvim
     set --export EDITOR nvim
@@ -47,11 +58,7 @@ if status is-login && functions --query replay
     replay source /etc/profile
 end
 
-fish_add_path --global --move /opt/local/libexec/gnubin
-fish_add_path --global --move /opt/local/bin
-fish_add_path --global --move /opt/local/libexec/llvm-11/bin
-fish_add_path --global --move /usr/lib/ccache
-fish_add_path --global --move ~/.local/bin
+add_paths
 
 if status is-interactive
     set --global fish_greeting
