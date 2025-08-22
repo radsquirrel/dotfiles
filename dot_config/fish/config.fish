@@ -32,7 +32,6 @@ set fish_cursor_replace_one underscore blink
 set fish_cursor_visual block blink
 set fish_cursor_unknown block blink
 set fish_vi_force_cursor
-set grc_plugin_ignore_execs ls
 
 # add non-standard paths before searching for commands
 add_paths
