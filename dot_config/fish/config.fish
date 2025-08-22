@@ -8,6 +8,22 @@ function add_paths
     fish_add_path --global --move ~/.local/bin
 end
 
+function proxy_ssh_agent
+    if command --query setsid && command --query socat && command --query npiperelay.exe && test -n "$WSL_DISTRO_NAME"
+        set sockfile "$XDG_RUNTIME_DIR"npiperelay-ssh-agent.sock
+        set pidfile "$XDG_RUNTIME_DIR"npiperelay-ssh-agent.pid
+        set pid (command cat $pidfile 2>/dev/null || echo 0)
+        if ! command ps --pid $pid >/dev/null 2>/dev/null
+            command rm --force $sockfile
+            command setsid socat UNIX-LISTEN:$sockfile,fork EXEC:"npiperelay.exe -ei -s -p //./pipe/openssh-ssh-agent",nofork &
+            set pid $last_pid
+            echo $pid >$pidfile
+            disown $pid
+        end
+        set --export --global SSH_AUTH_SOCK $sockfile
+    end
+end
+
 set fisher_path "$__fish_config_dir/plugins"
 
 set fish_cursor_default block blink
@@ -67,6 +83,10 @@ add_paths
 
 if status is-interactive
     set --global fish_greeting
+
+    if test -n "$WSL_DISTRO_NAME"
+        proxy_ssh_agent
+    end
 
     if test -d $HOME/.config/base16-shell/
         set BASE16_SHELL "$HOME/.config/base16-shell/"
