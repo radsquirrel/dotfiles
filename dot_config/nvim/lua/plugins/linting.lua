@@ -1,12 +1,13 @@
 return {
-    "mfussenegger/nvim-lint",
-    opts = {
-        linters_by_ft = {
-            c = { "cppcheck", "codespell" },
-            cpp = { "cppcheck", "codespell" },
-            gitcommit = { "gitlint", "codespell", "cspell" },
-            rst = { "rstcheck", "codespell" },
-            systemd = { "systemdlint" },
-        },
+  "mfussenegger/nvim-lint",
+  opts = {
+    linters_by_ft = {
+      c = { "codespell" },
+      cpp = { "codespell" },
+      gitcommit = { "gitlint", "codespell", "cspell" },
+      rst = { "rstcheck", "codespell" },
+      systemd = { "systemdlint" },
+      bitbake = { "oelint-adv" },
     },
+  },
 }
