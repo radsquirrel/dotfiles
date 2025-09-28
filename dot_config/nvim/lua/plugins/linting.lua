@@ -6,8 +6,9 @@ return {
       cpp = { "codespell" },
       gitcommit = { "gitlint", "codespell", "cspell" },
       rst = { "rstcheck", "codespell" },
-      systemd = { "systemdlint" },
-      bitbake = { "oelint-adv" },
+      systemd = { "systemdlint", "codespell" },
+      bitbake = { "oelint-adv", "codespell" },
+      sh = { "codespell" },
     },
   },
 }
