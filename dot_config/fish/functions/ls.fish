@@ -1,6 +1,6 @@
 if command --query eza
     function ls --wraps eza
-        command eza --icons=automatic --group-directories-first $argv
+        command eza --icons=auto --group-directories-first $argv
     end
 else
     function ls --wraps ls
