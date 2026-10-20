@@ -8,8 +8,8 @@ function add_paths
     fish_add_path --global --move ~/.local/bin
 end
 
-function proxy_ssh_agent
-    if command --query setsid && command --query socat && command --query npiperelay.exe && test -n "$WSL_DISTRO_NAME"
+function setup_ssh_agent
+    if test -n "$WSL_DISTRO_NAME" && command --query setsid && command --query socat && command --query npiperelay.exe
         set sockfile "$XDG_RUNTIME_DIR"/npiperelay-ssh-agent.sock
         set pidfile "$XDG_RUNTIME_DIR"/npiperelay-ssh-agent.pid
         set pid (command cat $pidfile 2>/dev/null || echo 0)
@@ -22,6 +22,12 @@ function proxy_ssh_agent
         end
         set --export --global SSH_AUTH_SOCK $sockfile
     end
+
+    set --local agent_sock "$HOME/.ssh/agent.sock"
+    if set --query SSH_AUTH_SOCK; and test -S "$SSH_AUTH_SOCK"; and test "$SSH_AUTH_SOCK" != "$agent_sock"
+        command ln --symbolic --force --no-dereference "$SSH_AUTH_SOCK" "$agent_sock"
+    end
+    set --export --global SSH_AUTH_SOCK "$agent_sock"
 end
 
 set fisher_path "$__fish_config_dir/plugins"
@@ -84,12 +90,17 @@ end
 
 add_paths
 
+if status is-login
+    setup_ssh_agent
+    if not set --query TMUX
+        and type --query tmux
+        and tmux has-session -t 0 2>/dev/null
+        exec tmux attach-session -t 0
+    end
+end
+
 if status is-interactive
     set --global fish_greeting
-
-    if test -n "$WSL_DISTRO_NAME"
-        proxy_ssh_agent
-    end
 
     if test -d $HOME/.config/base16-shell/
         set BASE16_SHELL "$HOME/.config/base16-shell/"
