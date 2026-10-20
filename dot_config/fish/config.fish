@@ -10,8 +10,8 @@ end
 
 function proxy_ssh_agent
     if command --query setsid && command --query socat && command --query npiperelay.exe && test -n "$WSL_DISTRO_NAME"
-        set sockfile "$XDG_RUNTIME_DIR"npiperelay-ssh-agent.sock
-        set pidfile "$XDG_RUNTIME_DIR"npiperelay-ssh-agent.pid
+        set sockfile "$XDG_RUNTIME_DIR"/npiperelay-ssh-agent.sock
+        set pidfile "$XDG_RUNTIME_DIR"/npiperelay-ssh-agent.pid
         set pid (command cat $pidfile 2>/dev/null || echo 0)
         if ! command ps --pid $pid >/dev/null 2>/dev/null
             command rm --force $sockfile
@@ -49,6 +49,10 @@ set --export FZF_DEFAULT_OPTS '--prompt=🔍' '--pointer=▶' '--marker=✓' '--
 set fzf_dir_opts '--border=rounded' \
     '--bind=ctrl-o:execute-silent(open {} &> /dev/tty 2>&1),ctrl-e:execute(vim {} &> /dev/tty 2>&1)'
 set fzf_processes_opts '--border=rounded' '--bind=ctrl-k:execute(kill {1})'
+
+if test -r '/etc/ssl/ca-bundle.pem'
+    set --export REQUESTS_CA_BUNDLE '/etc/ssl/ca-bundle.pem'
+end
 
 if command --query exa
     set --export fzf_preview_dir_cmd command exa --all --long --header \
